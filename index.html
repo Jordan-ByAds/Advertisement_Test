@@ -6,8 +6,8 @@
     <title>Unity Web Player | Advertisement_Stake</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=1024 height=1024 tabindex="-1" style="width: 1024px; height: 1024px; background: #231F20"></canvas>
-    <script src="Build/T2.1.loader.js"></script>
+    <canvas id="unity-canvas" width=1024 height=1024 tabindex="-1" style="width: 1024px; height: 1024px; background: #1E2E3A"></canvas>
+    <script src="Build/T2.2.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -26,9 +26,9 @@
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/T2.1.data",
-        frameworkUrl: "Build/T2.1.framework.js",
-        codeUrl: "Build/T2.1.wasm",
+        dataUrl: "Build/T2.2.data",
+        frameworkUrl: "Build/T2.2.framework.js",
+        codeUrl: "Build/T2.2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "ByAds",
         productName: "Advertisement_Stake",
