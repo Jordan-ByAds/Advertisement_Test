@@ -1,0 +1,422 @@
+/* ==== ESTILOS GENERALES ==== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 100%;
+    overflow-x: hidden; /* ✅ evita desplazamiento horizontal */
+  }
+  
+  body {
+    background-image: url('fondo_escritorio.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .pantalla-dividida {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .lado-izquierdo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 18vw;
+    padding-right: 2rem;
+    padding-top: 3rem;
+  }
+  
+  .contenido-texto {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .logo.desktop-only {
+    display: block;
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 0.1rem;
+  }
+  
+  .lado-derecho {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  /* ==== TEXTO DESTACADO ==== */
+  .sub {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  
+  .sub.te-reta {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+  
+  .bold {
+    font-weight: 900;
+    font-size: 2rem;
+    color: #00FF66;
+  }
+  
+  .mete-el {
+    font-size: 4.8rem;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 0.2rem;
+    line-height: 1;
+  }
+  
+  .gol {
+    font-size: 10rem;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    top: -1.8rem;
+    z-index: 2;
+    line-height: 1;
+  }
+  
+  .y-gana {
+    font-size: 4.8rem;
+    color: #00FF66;
+    display: block;
+    position: relative;
+    top: -3rem;
+    line-height: 1;
+  }
+  
+  .un-premio {
+    font-size: 1rem;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    top: -3.5rem;
+    line-height: 1.2;
+  }
+  
+  .aceptas {
+    font-size: 2.1rem;
+    color: #00FF66;
+    font-weight: 900;
+    display: block;
+    position: relative;
+    top: -4rem;
+    margin-top: 0.5rem;
+  }
+  
+  .bloque-principal p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  /* ==== BLOQUE PROMOCIONAL ==== */
+  .duplica,
+  .instante,
+  .deposita,
+  .recibe,
+  .gratis,
+  .sin-requisitos {
+    display: block;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .duplica,
+  .instante {
+    font-size: 1.6rem;
+  }
+  
+  .instante {
+    position: relative;
+    top: -1.3rem;
+  }
+  
+  .deposita {
+    font-size: 2.6rem;
+    position: relative;
+    top: -1.8rem;
+  }
+  
+  .recibe {
+    font-size: 2.6rem;
+    color: #00FF66;
+    position: relative;
+    top: -3.5rem;
+  }
+  
+  .gratis {
+    font-size: 0.9rem;
+    font-weight: 800;
+    position: relative;
+    top: -3.5rem;
+    line-height: 1.2;
+  }
+  
+  .sin-requisitos {
+    font-size: 0.9rem;
+    font-weight: 800;
+    position: relative;
+    top: -4.5rem;
+    line-height: 1.2;
+  }
+  
+  .bloque-final {
+    margin-top: 2rem;
+  }
+  
+  /* ==== CANVAS ==== */
+  .canvas-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* opcional: bordes suaves */
+    box-shadow:
+      0 0 20px rgba(173, 216, 230, 0.4),   /* azul claro */
+      0 0 40px rgba(255, 255, 255, 0.3),   /* blanco suave */
+      0 0 60px rgba(173, 216, 230, 0.2);   /* azul más disperso */
+  }
+  
+  
+  canvas {
+    width: 100%;
+    aspect-ratio: 1 / 1;       /* ✅ cuadrado en escritorio */
+    height: auto;
+    background-color: transparent;
+    display: block;
+  }
+  
+  
+  
+  /* ==== VISIBILIDAD ==== */
+  .desktop-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
+  
+  /* ==== MOBILE ==== */
+  @media (max-width: 768px) {
+    body {
+      background-image: url('fondo_mobile.png');
+      
+    }
+  
+    .pantalla-dividida {
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .lado-izquierdo {
+      align-items: center;
+      padding: 2.5rem;
+    }
+  
+    .lado-derecho {
+      width: 100vw;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .canvas-container {
+        width: 100vw;
+        max-width: 400px;       /* ✅ tamaño reducido */
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -3.5rem;
+      }
+      
+      canvas {
+        width: 100%;
+        aspect-ratio: 1 / 1;     /* ✅ mantiene forma cuadrada */
+        height: auto;
+        background-color: transparent;
+        display: block;
+      }
+      
+      
+  
+    .contenido-texto {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .logo {
+      max-width: 80px;
+      margin-bottom: 0rem;
+    }
+  
+    .sub.te-reta {
+      font-size: 1.7rem;
+    }
+  
+    .mete-el {
+      font-size: 2.5rem;
+      position: relative;
+      top: -2rem;
+    }
+  
+    .gol {
+      font-size: 2.5rem;
+      top: 0;
+      position: relative;
+      top: -2rem;
+    }
+  
+    .y-gana {
+      font-size: 4rem;
+    }
+  
+    .un-premio {
+      font-size: 1rem;
+      top: 0;
+      position: relative;
+      top: -3.8rem;
+    }
+  
+    .aceptas {
+      font-size: 1rem;
+      top: 0;
+      color: #00FF66;
+      position: relative;
+      top: -4.1rem;;
+    }
+  
+    .solo-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .linea {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+  
+    .logo-te-reta .logo {
+      max-width: 60px;
+    }
+  
+    .mobile-only {
+      display: block !important;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      padding: 1rem;
+    }
+  
+    .mobile-only .bold {
+      font-size: 1rem;
+      color: #00FF66;
+    }
+  
+    .desktop-only {
+      display: none !important;
+    }
+  
+    .bloque-principal p:not(.solo-mobile) {
+      display: none;
+    }
+    .duplica{
+        position: relative;
+      top: -6.8rem;
+      left: 3rem;
+      font-size: 1.2rem;
+    }
+    .instante {
+        position: relative;
+        top: -8.6rem;
+        left: 3rem;
+        font-size: 1.2rem;
+    }
+
+    .deposita {
+        font-weight: 700;
+        position: relative;
+        top: -9.8rem;
+        left: 3rem;
+        font-size: 1.9rem !important;
+        color: #ffffff !important;
+      }
+      
+      .recibe {
+       
+        color: #00FF66;
+        position: relative;
+        top: -12.3rem;
+        left: 3rem;
+        font-size: 1.8rem !important;
+      }
+        
+    
+  .gratis {
+    color: #ffffff !important;
+    font-size: 0.7rem!important;
+    font-weight: 700;
+    position: relative;
+    top: -13.5rem;
+   
+    left: 4rem;
+  }
+  
+  .sin-requisitos {
+    color: #ffffff !important;
+    font-size: 0.7rem!important;
+    font-weight: 700;
+    position: relative;
+    top: -14.8rem;
+    left: 4rem;
+  }
+      
+  }
+
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Clase base para aplicar animación */
+  .animate-text {
+    animation: fadeSlideUp 0.8s ease-out both;
+  }
+  
+  
