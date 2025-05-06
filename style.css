@@ -1,422 +1,247 @@
-/* ==== ESTILOS GENERALES ==== */
-body, html {
+@font-face {
+    font-family: 'ProximaNovaXBold';
+    src: url('fonts/FontsFree-Net-Proxima-Nova-Xbold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    height: 100%;
-    overflow-x: hidden; /* ✅ evita desplazamiento horizontal */
-  }
-  
-  body {
+    font-family: 'ProximaNovaXBold', sans-serif;
     background-image: url('fondo_escritorio.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    color: white;
   }
   
-  .pantalla-dividida {
+  
+  .container {
     display: flex;
-    height: 100vh;
-    width: 100%;
+    flex: 1; /* 👈 en lugar de min-height: 100vh */
+    flex-direction: row;
   }
   
-  .lado-izquierdo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding-left: 18vw;
-    padding-right: 2rem;
-    padding-top: 3rem;
-  }
   
-  .contenido-texto {
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .logo.desktop-only {
-    display: block;
-    margin: 0 auto;
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 0.1rem;
-  }
-  
-  .lado-derecho {
+  /* Columna izquierda */
+  .left {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 40px;
   }
   
-  /* ==== TEXTO DESTACADO ==== */
-  .sub {
-    font-size: 1.1rem;
-    font-weight: 400;
+  .content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
   }
   
-  .sub.te-reta {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #ffffff;
+  /* Texto principal */
+  .text-main p {
+    margin: 0;
   }
   
-  .bold {
-    font-weight: 900;
-    font-size: 2rem;
-    color: #00FF66;
-  }
-  
-  .mete-el {
-    font-size: 4.8rem;
-    color: #ffffff;
-    display: block;
-    position: relative;
-    z-index: 1;
-    margin-top: 0.2rem;
-    line-height: 1;
+  .mete {
+    font-size: 24px;
+    font-weight: 300;
   }
   
   .gol {
-    font-size: 10rem;
-    color: #ffffff;
-    display: block;
-    position: relative;
-    top: -1.8rem;
-    z-index: 2;
-    line-height: 1;
+    font-size: 78px;
+    font-weight: 1000;
+    font-style: italic;
+    position: relative; /* 👈 Agregamos esto */
+    top: -2.2vh; 
+
+
   }
   
-  .y-gana {
-    font-size: 4.8rem;
-    color: #00FF66;
-    display: block;
-    position: relative;
-    top: -3rem;
-    line-height: 1;
+  .gana {
+    font-size: 78px;
+    font-weight: 1000;
+    color: #68F263; /* Verde */
+    font-style: italic;
+    position: relative; /* 👈 Agregamos esto */
+    top: -5.9vh; /* 👈 Ahora sí se mueve para arriba */
+
+
   }
   
-  .un-premio {
-    font-size: 1rem;
-    color: #ffffff;
-    display: block;
-    position: relative;
-    top: -3.5rem;
-    line-height: 1.2;
+  /* Badge */
+  .badge {
+    background-color: #1C262B; /* Fondo más claro */
+    padding: 6px 25px;          /* Menos espacio alrededor del texto */
+    border-radius: 50px;
+    font-size: 22px;
+    position: relative; /* 👈 Agregamos esto */
+    top: -6.5vh;
+  }
+  .badge p{
+    margin: 0;
   }
   
   .aceptas {
-    font-size: 2.1rem;
-    color: #00FF66;
-    font-weight: 900;
-    display: block;
-    position: relative;
-    top: -4rem;
-    margin-top: 0.5rem;
+    color: #68F263;
+    font-weight: bold;
   }
   
-  .bloque-principal p {
-    margin: 0;
-    padding: 0;
-    line-height: 1;
+  /* Texto depósito */
+  .deposit-text p {
+    margin: 0; /* 👈 Sin margen arriba ni abajo */
+    font-weight: 1000;
+    font-size: 38px;
+    line-height: 1; /* 👈 Opcional para aún más pegado vertical */
   }
   
-  /* ==== BLOQUE PROMOCIONAL ==== */
-  .duplica,
-  .instante,
-  .deposita,
-  .recibe,
-  .gratis,
-  .sin-requisitos {
-    display: block;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0;
-  }
   
-  .duplica,
-  .instante {
-    font-size: 1.6rem;
-  }
-  
-  .instante {
-    position: relative;
-    top: -1.3rem;
-  }
-  
-  .deposita {
-    font-size: 2.6rem;
-    position: relative;
-    top: -1.8rem;
-  }
-  
-  .recibe {
-    font-size: 2.6rem;
-    color: #00FF66;
-    position: relative;
-    top: -3.5rem;
-  }
-  
-  .gratis {
-    font-size: 0.9rem;
-    font-weight: 800;
-    position: relative;
-    top: -3.5rem;
-    line-height: 1.2;
-  }
-  
-  .sin-requisitos {
-    font-size: 0.9rem;
-    font-weight: 800;
-    position: relative;
-    top: -4.5rem;
-    line-height: 1.2;
-  }
-  
-  .bloque-final {
-    margin-top: 2rem;
-  }
-  
-  /* ==== CANVAS ==== */
-  .canvas-container {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+  /* Columna derecha */
+  .right {
+    flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 12px; /* opcional: bordes suaves */
-    box-shadow:
-      0 0 20px rgba(173, 216, 230, 0.4),   /* azul claro */
-      0 0 40px rgba(255, 255, 255, 0.3),   /* blanco suave */
-      0 0 60px rgba(173, 216, 230, 0.2);   /* azul más disperso */
+    padding: 40px;
   }
   
+  #unity-canvas {
+    background: #231F20;
+    border-radius: 20px;
+    width: 612px;
+    height: 612px;
+  }
   
-  canvas {
+  /* Footer */
+  .footer {
     width: 100%;
-    aspect-ratio: 1 / 1;       /* ✅ cuadrado en escritorio */
-    height: auto;
-    background-color: transparent;
-    display: block;
+    text-align: center;
+    font-size: 20px;
+   
+    margin-top: 15px;
+    margin-bottom: 10px;
+    transform: translateX(-1%); 
+    font-weight: 600; /* 👈 Movimiento suave hacia la izquierda */
   }
   
   
   
-  /* ==== VISIBILIDAD ==== */
+  /* Control de visibilidad escritorio/mobile */
   .desktop-only {
     display: block;
   }
+  
   .mobile-only {
     display: none;
   }
   
-  /* ==== MOBILE ==== */
+  /* Estilos para mobile */
   @media (max-width: 768px) {
     body {
       background-image: url('fondo_mobile.png');
-      
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   
-    .pantalla-dividida {
+    .container {
       flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+  
+    .left, .right {
+      flex: none;
+      width: 100%;
       padding: 0;
-      margin: 0;
     }
   
-    .lado-izquierdo {
-      align-items: center;
-      padding: 2.5rem;
+    .left {
+      order: 1;
+      margin-top: 110px;
     }
   
-    .lado-derecho {
-      width: 100vw;
-      padding: 0 !important;
-      margin: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    .right {
+      order: 2;
+      margin-top: 20px;
     }
   
-    .canvas-container {
-        width: 100vw;
-        max-width: 400px;       /* ✅ tamaño reducido */
-        padding: 0;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        top: -3.5rem;
-      }
+    /* Ajustes textos mobile */
+    .content-left {
+      gap: 10px;
+    }
+  
+    .text-main .mete {
+      font-size: 15px;
+      font-weight: 400;
+    }
+  
+    .text-main .gol {
+      font-size: 48px;
+      font-weight: 1000;
+      position: relative; /* 👈 Agregamos esto */
+      top: -1.5vh; 
+    }
+  
+    .text-main .gana {
+      font-size: 48px;
+      font-weight: 1000;
+      color: #68F263;
+      position: relative; /* 👈 Agregamos esto */
+      top: -3.9vh; 
+    }
+  
+    .badge {
+      margin-top: 15px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 20px;
+      position: relative; /* 👈 Agregamos esto */
+      top: -3.5vh; 
+    }
+  
+    .badge .aceptas {
+      color: #68F263;;
+      font-weight: bold;
       
-      canvas {
-        width: 100%;
-        aspect-ratio: 1 / 1;     /* ✅ mantiene forma cuadrada */
-        height: auto;
-        background-color: transparent;
-        display: block;
-      }
-      
-      
-  
-    .contenido-texto {
-      max-width: 100%;
-      text-align: center;
     }
   
-    .logo {
-      max-width: 80px;
-      margin-bottom: 0rem;
+    #unity-canvas {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      margin: 20px 0;
     }
   
-    .sub.te-reta {
-      font-size: 1.7rem;
-    }
-  
-    .mete-el {
-      font-size: 2.5rem;
-      position: relative;
-      top: -2rem;
-    }
-  
-    .gol {
-      font-size: 2.5rem;
-      top: 0;
-      position: relative;
-      top: -2rem;
-    }
-  
-    .y-gana {
-      font-size: 4rem;
-    }
-  
-    .un-premio {
-      font-size: 1rem;
-      top: 0;
-      position: relative;
-      top: -3.8rem;
-    }
-  
-    .aceptas {
-      font-size: 1rem;
-      top: 0;
-      color: #00FF66;
-      position: relative;
-      top: -4.1rem;;
-    }
-  
-    .solo-mobile {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .linea {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-  
-    .logo-te-reta .logo {
-      max-width: 60px;
-    }
-  
+    /* Ajustes depósito mobile */
     .mobile-only {
-      display: block !important;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
       text-align: center;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      padding: 1rem;
     }
   
-    .mobile-only .bold {
-      font-size: 1rem;
-      color: #00FF66;
+    .deposit-text p {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 2px 0;
     }
   
     .desktop-only {
-      display: none !important;
-    }
-  
-    .bloque-principal p:not(.solo-mobile) {
       display: none;
     }
-    .duplica{
-        position: relative;
-      top: -6.8rem;
-      left: 3rem;
-      font-size: 1.2rem;
-    }
-    .instante {
-        position: relative;
-        top: -8.6rem;
-        left: 3rem;
-        font-size: 1.2rem;
-    }
-
-    .deposita {
-        font-weight: 700;
-        position: relative;
-        top: -9.8rem;
-        left: 3rem;
-        font-size: 1.9rem !important;
-        color: #ffffff !important;
-      }
-      
-      .recibe {
-       
-        color: #00FF66;
-        position: relative;
-        top: -12.3rem;
-        left: 3rem;
-        font-size: 1.8rem !important;
-      }
-        
-    
-  .gratis {
-    color: #ffffff !important;
-    font-size: 0.7rem!important;
-    font-weight: 700;
-    position: relative;
-    top: -13.5rem;
-   
-    left: 4rem;
-  }
   
-  .sin-requisitos {
-    color: #ffffff !important;
-    font-size: 0.7rem!important;
-    font-weight: 700;
-    position: relative;
-    top: -14.8rem;
-    left: 4rem;
-  }
-      
-  }
-
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    .footer {
+      margin-top: 10px;
+      font-size: 12px;
+      opacity: 0.8;
     }
   }
-  
-  /* Clase base para aplicar animación */
-  .animate-text {
-    animation: fadeSlideUp 0.8s ease-out both;
-  }
-  
   

@@ -1,103 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stake | Te Reta</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stake Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="pantalla-dividida">
-    <!-- 🟪 MITAD IZQUIERDA -->
-    <div class="lado-izquierdo">
-      <div class="contenido-texto">
-        <!-- Logo SOLO escritorio -->
-        <img src="stake-logo.png" alt="Stake Logo" class="logo desktop-only animate-text" />
-    
-        <!-- TE RETA SOLO escritorio -->
-        <span class="sub te-reta desktop-only animate-text">TE RETA</span>
-    
-        <!-- Texto principal SOLO móvil -->
-        <div class="bloque-principal">
-          <p class="solo-mobile">
-            <span class="linea logo-te-reta mobile-only">
-              <img src="stake-logo.png" alt="Stake Logo" class="logo animate-text" />
-              <span class="sub te-reta animate-text">TE RETA</span>
-            </span>
-    
-            <span class="linea mete-gol">
-              <span class="bold mete-el animate-text">METE EL</span>
-              <span class="bold gol animate-text">GOL</span>
-            </span>
-    
-            <span class="linea">
-              <span class="bold y-gana animate-text">Y GANA</span>
-            </span>
-    
-            <span class="linea final">
-              <span class="bold un-premio animate-text">UN TIRO, UN PREMIO.</span>
-              <span class="bold aceptas animate-text" >¿ACEPTAS?</span>
-            </span>
-          </p>
+  <div class="container">
+
+    <!-- Bloque izquierdo (textos) -->
+    <div class="left">
+      <div class="content-left">
+        <div class="text-main">
+          <p class="mete">METE EL</p>
+          <p class="gol">GOL</p>
+          <p class="gana">Y GANA</p>
         </div>
-    
-        <!-- Subtítulo SOLO escritorio -->
-        <div class="bloque-final desktop-only">
-          <p class="sub">
-            <span class="duplica animate-text">¡DUPLICA TU PRIMER</span><br />
-            <span class="instante animate-text">DEPÓSITO AL INSTANTE!</span><br />
-            <span class="bold deposita animate-text">DEPOSITA $50.000</span><br />
-            <span class="bold recibe animate-text ">Y RECIBE $50.000</span><br />
-            <span class="bold gratis animate-text">EXTRA COMPLETAMENTE GRATIS, SIN LETRAS</span><br />
-            <span class="bold sin-requisitos animate-text">PEQUEÑAS NI REQUISITOS DIFÍCILES</span><br />
-          </p>
+
+        <div class="badge">
+          <p>UN TIRO, UN GOL <span class="aceptas">¿ACEPTAS?</span></p>
+        </div>
+
+        <div class="deposit-text desktop-only">
+          <p>DEPOSITA 50,000</p>
+          <p>RECIBE 50,000 EXTRA</p>
         </div>
       </div>
     </div>
-    
 
-    <!-- 🟦 MITAD DERECHA -->
-    <div class="lado-derecho">
-      <div class="canvas-container">
-        <!-- Canvas Unity con borde visible -->
-        <canvas id="unity-canvas" tabindex="-1"></canvas>
-      </div>
+    <!-- Bloque derecho (canvas + depósito en mobile) -->
+    <div class="right">
+      <canvas id="unity-canvas" width="512" height="512" tabindex="-1"></canvas>
 
-      <!-- Subtítulo SOLO móvil -->
-      <div class="bloque-final mobile-only">
-        <p class="sub">
-          <span class="duplica animate-text">¡DUPLICA TU PRIMER</span><br />
-          <span class="instante animate-text">DEPÓSITO AL INSTANTE!</span><br />
-          <span class="bold deposita animate-text">DEPOSITA $50.000</span><br />
-          <span class="bold recibe animate-text">Y RECIBE $50.000</span><br />
-          <span class="bold gratis animate-text">EXTRA COMPLETAMENTE GRATIS, SIN LETRAS</span><br />
-          <span class="bold sin-requisitos animate-text">PEQUEÑAS NI REQUISITOS DIFÍCILES</span><br />
-        </p>
+      <div class="deposit-text mobile-only">
+        <p>DEPOSITA 50,000</p>
+        <p>RECIBE 50,000 EXTRA</p>
       </div>
     </div>
+
   </div>
 
-  <!-- Unity Loader -->
-  <script src="Build/T3.0.loader.js"></script>
-  <script>
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-      const meta = document.createElement("meta");
-      meta.name = "viewport";
-      meta.content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-      document.head.appendChild(meta);
-    }
+  <div class="footer">
+    <p>APLICAN TYC</p>
+  </div>
 
+  <script src="Build/P10k.loader.js"></script>
+  <script>
     createUnityInstance(document.querySelector("#unity-canvas"), {
       arguments: [],
-      dataUrl: "Build/T3.0.data",
-      frameworkUrl: "Build/T3.0.framework.js",
-      codeUrl: "Build/T3.0.wasm",
+      dataUrl: "Build/P10k.data",
+      frameworkUrl: "Build/P10k.framework.js",
+      codeUrl: "Build/P10k.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "ByAds",
       productName: "Advertisement_Stake",
-      productVersion: "2.0"
+      productVersion: "2.0",
     });
   </script>
+
 </body>
 </html>
